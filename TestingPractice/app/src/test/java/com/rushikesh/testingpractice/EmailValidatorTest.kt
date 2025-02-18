@@ -15,4 +15,12 @@ class EmailValidatorTest {
     fun emailValidator_validEmail_ReturnsTrue() {
         assertTrue(EmailValidator.isValidEmail("rushikesh@gmail.com"))
     }
+    @Test
+    fun emailValidator_correctEmailSubdomain_ReturnsTrue() {
+        assertTrue(EmailValidator.isValidEmail("rushikesh@email.co.uk"))
+    }
+    @Test
+    fun emailValidator_InvalidEmailNoTld_ReturnsFalse() {
+        assertFalse(EmailValidator.isValidEmail("rushikesh@email"))
+    }
 }
